@@ -11,11 +11,11 @@ import 'bootstrap'
 import './stylesheets/application'
 import firebase from 'firebase/app';
 import Rails from "@rails/ujs"
-import * as ActiveStorage from "@rails/activestorage"
+// import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 Rails.start()
-ActiveStorage.start()
+// ActiveStorage.start()
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip();
