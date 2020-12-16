@@ -1,0 +1,190 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/seeds/**/*'
+    - 'node_modules/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+
+Lint/UnusedMethodArgument:
+  Exclude:
+
+Metrics/AbcSize:
+  Max: 54
+
+Metrics/BlockLength:
+  Max: 33
+  Exclude:
+    - 'db/schema.rb'
+    - 'config/environments/development.rb'
+
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - 'db/migrate/20201117110351_create_doorkeeper_tables.rb'
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/callbacks_controller.rb'
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'bin/bundle'
+    - 'config/deploy.rb'
+
+Style/MissingRespondToMissing:
+  Exclude:
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
+
+Layout/LineLength:
+  Max: 190
+  Exclude:
+    - 'db/seeds.rb'
+    - 'config/initializers/devise.rb'
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/WordArray:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - 'db/schema.rb'
+
+Style/StringLiterals:
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/bundle'
+    - 'bin/webpack'
+    - 'bin/webpack-dev-server'
+    - 'bin/yarn'
+    - 'config/environments/production.rb'
+    - 'config/puma.rb'
+    - 'config/spring.rb'
+
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'Gemfile'
+
+Layout/ArgumentAlignment:
+  Exclude:
+    - 'bin/webpack'
+    - 'bin/webpack-dev-server'
+
+Layout/EmptyLineAfterGuardClause:
+  Exclude:
+    - 'bin/bundle'
+    - 'app/controllers/callbacks_controller.rb'
+
+Layout/ExtraSpacing:
+  Enabled: false
+
+Layout/SpaceAfterComma:
+  Exclude:
+    - 'db/seeds.rb'
+
+Layout/SpaceAroundOperators:
+  Exclude:
+    - 'db/seeds.rb'
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - 'config/environments/production.rb'
+
+Layout/TrailingWhitespace:
+  Exclude:
+    - 'config/environments/test.rb'
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Style/ExpandPathArguments:
+  Exclude:
+    - 'bin/bundle'
+    - 'bin/rails'
+    - 'bin/rake'
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'config/deploy.rb'
+
+Style/PerlBackrefs:
+  Exclude:
+    - 'bin/bundle'
+
+Style/RedundantBegin:
+  Exclude:
+    - 'bin/yarn'
+
+Style/SpecialGlobalVars:
+  Exclude:
+    - 'bin/bundle'
+
+Style/StderrPuts:
+  Exclude:
+    - 'bin/yarn'
+
+Style/NumericPredicate:
+  Exclude:
+    - 'spec/**/*'
+
+Style/MultilineBlockChain:
+  Exclude:
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Style/ExponentialNotation:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+Style/RedundantRegexpEscape:
+  Enabled: true
+Style/SlicingWithRange:
+  Enabled: true
+Style/CommentedKeyword:
+  Enabled: true
+Layout/HashAlignment:
+  Enabled: false
+Layout/FirstHashElementIndentation:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: true

@@ -1,0 +1,48 @@
+.card.text-white.bg-dark.mb-3
+  .nested-fields
+    .card-body
+      / h5.card-title Card title
+      / h6.card-subtitle.mb-1.text-muted Card subtitle
+      / p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+      .card-link
+        = link_to_remove_association "Удалить", f
+      .field
+        .row
+          .col-sm-4
+            .form-group.row
+              = f.label :enabled, 'Активирован?', class: 'col-form-label'
+              = f.check_box :enabled, class: 'form-control'
+          .col-sm-4
+            .form-group.row
+              = f.label :retrievable, 'retrievable', class: 'col-form-label'
+              = f.check_box :retrievable, class: 'form-control'
+          .col-sm-4
+            .form-group.row
+              = f.label :status, 'status', class: 'col-form-label'
+              = f.check_box :status, class: 'form-control'
+        .form-group.row
+          = f.label :capability_type, 'capability_type', class: 'col-sm-4 col-form-label'
+          .col-sm-8
+            = f.text_field :capability_type, class: 'form-control'
+        .form-group.row
+          = f.label :state_instance, 'state_instance', class: 'col-sm-4 col-form-label'
+          .col-sm-8
+            = f.text_field :state_instance, class: 'form-control'
+        .form-group.row
+          = f.label :state_value, 'state_value', class: 'col-sm-4 col-form-label'
+          .col-sm-8
+            = f.number_field :state_value, class: 'form-control'
+        .form-group.row
+          = f.label :state, 'state', class: 'col-sm-4 col-form-label'
+          .col-sm-8
+            = f.select :state, Capability::TYPES, {}, class: 'form-control'
+        .form-group.row
+          = f.label :path, 'path', class: 'col-sm-4 col-form-label'
+          .col-sm-8
+            = f.text_field :path, class: 'form-control'
+        .form-group.row
+          = f.label :pin, 'pin', class: 'col-sm-4 col-form-label'
+          .col-sm-8
+            = f.number_field :pin, class: 'form-control'
+        = f.hidden_field :id
+br

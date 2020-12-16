@@ -1,0 +1,10 @@
+section#devices_edit_section.signup-section.bg-black.text-center
+  .container
+    .row
+      .col-2
+      .col-8
+        h3.text-white-50 Устройство "#{@device.name}" в помещении "#{@device.room}"
+      .col-2
+    .row
+      .col-12
+        == render 'form'

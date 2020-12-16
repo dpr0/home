@@ -1,0 +1,34 @@
+section#devices_show_section.signup-section.bg-black.text-center
+  .container
+    .row
+      .col-6
+        = form_tag device_path(@device), method: :put do
+          - Device::PINS.each_slice(2) do |left, right|
+            .row
+              .col-4.text-right class="bg-#{left[:bg]}"
+                = left[:comment]
+              .col-1.text-white-50
+                = left[:num]
+              .col-1.text-white-50 class="#{left[:bg] == 'success' ? "bg-#{left[:bg]}" : ''}"
+                = check_box_tag "gpio_pins[]", true, left[:num].nil?, disabled: left[:bg] != 'success'
+              .col-1.text-white-50 class="#{right[:bg] == 'success' ? "bg-#{right[:bg]}" : ''}"
+                = check_box_tag "gpio_pins[]", true, right[:num].nil?, disabled: right[:bg] != 'success'
+              .col-1.text-white-50
+                = right[:num]
+              .col-4.text-left class="bg-#{right[:bg]}"
+                = right[:comment]
+        / = submit_tag 'SET GPIO', class: 'btn btn-xs btn-success'
+      .col-6
+        div
+          - if @bme280.present?
+            div.text-left.text-white-50 Температура: #{@bme280['t']}
+            div.text-left.text-white-50 Давление: #{@bme280['p']}
+            div.text-left.text-white-50 Влажность: #{@bme280['h']}
+        div
+          - if @sens.present? && @sens['crc']
+            p Температура: #{@sens['temp']}
+            p CO2: #{@sens['co2']}
+
+    = link_to 'Edit', edit_device_path(@device)
+    = link_to 'Back', devices_path
+    = link_to 'Destroy', @device, data: {confirm: 'Are you sure?'}, method: :delete

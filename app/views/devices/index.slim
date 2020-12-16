@@ -1,0 +1,34 @@
+section#devices_list_section.signup-section.bg-black.text-center
+  .container
+    .notice = notice
+    .alert = alert
+    .row
+      .col-2
+      .col-8
+        h1.text-white-50 Список устройств
+      .col-2
+        = link_to 'Добавить', new_device_path, class: 'btn btn-xs btn-success'
+    br
+    .row
+      .col-12
+        table.table.table-dark
+          thead
+            tr
+              td Наименование
+              td Подключен?
+              td Местоположение
+              td Тип навыка
+              td Хост
+              td Порт
+          tbody
+            - @devices.each do |device|
+              tr.text-white-50 data-link="#{edit_device_path(device)}"
+                td= device.name
+                td= device.enabled
+                td= device.room
+                td= device.device_type
+                td= device.host
+                td= device.port
+
+javascript:
+    $("tr[data-link]").click( function() { window.location = $(this).data("link") } )

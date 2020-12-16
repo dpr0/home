@@ -1,0 +1,96 @@
+= form_with model: @device, remote: false do |f|
+  .row
+    .col-12
+      .actions.row
+        .col-sm-4
+          = link_to 'Назад', devices_path, class: 'btn btn-secondary btn-block'
+        .col-sm-4
+          - if @device.id
+            = link_to 'Удалить', @device, data: {confirm: 'Вы уверены?'}, method: :delete, class: 'btn btn-danger btn-block'
+        .col-sm-4
+          = f.submit 'Сохранить', class: 'btn btn-success btn-block'
+  .row
+    .col-12
+      p
+  .row
+    .col-6
+      .card.text-white.bg-dark.mb-3
+        .card-body
+        p
+        - if @device.errors.any?
+          #error_explanation
+            h2 = "#{pluralize(@device.errors.count, "error")} prohibited this device from being saved:"
+            ul
+              - @device.errors.full_messages.each do |message|
+                li = message
+        .form-group.row
+          = f.label :enabled, 'Активирован?', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.check_box :enabled, class: 'form-control'
+        .form-group.row
+          = f.label :name, 'Наименование', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.text_field :name, class: 'form-control'
+        .form-group.row
+          = f.label :description, 'Описание', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.text_field :description, class: 'form-control'
+        .form-group.row
+          = f.label :room, 'Помещение', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.text_field :room, class: 'form-control'
+        .form-group.row
+          = f.label :device_type, 'Тип', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.select :device_type, Device::TYPES, {}, class: 'form-control'
+        .form-group.row
+          = f.label :manufacturer, 'Производитель', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.text_field :manufacturer, class: 'form-control'
+        .form-group.row
+          = f.label :model, 'Модель', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.text_field :model, class: 'form-control'
+        .form-group.row
+          = f.label :hw_version, 'Версия железа', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.text_field :hw_version, class: 'form-control'
+        .form-group.row
+          = f.label :sw_version, 'Версия софта', class: 'col-sm-4 col-form-label text-white-50'
+          .col-sm-8
+            = f.text_field :sw_version, class: 'form-control'
+      p
+      .card.bg-dark.mb-3
+        .card-body
+          .col-12
+            - Device::PINS.each_slice(2) do |left, right|
+              .row
+                .col-3.text-right class="bg-#{left[:bg]}"
+                  = left[:comment]
+                .col-2.text-white-50
+                  = left[:num]
+                .col-1.text-white-50 class="#{left[:bg] == 'success' ? "bg-#{left[:bg]}" : ''}"
+                  = check_box_tag "gpio_pins[]", true, left[:num].nil?, disabled: left[:bg] != 'success'
+                .col-1.text-white-50 class="#{right[:bg] == 'success' ? "bg-#{right[:bg]}" : ''}"
+                  = check_box_tag "gpio_pins[]", true, right[:num].nil?, disabled: right[:bg] != 'success'
+                .col-2.text-white-50
+                  = right[:num]
+                .col-3.text-left class="bg-#{right[:bg]}"
+                  = right[:comment]
+    .col-6
+      #capabilities
+        = f.fields_for :capabilities do |capability|
+          = render 'capability_fields', f: capability
+        .links
+          = link_to_add_association 'Добавить навык', f, :capabilities, class: 'btn btn-primary'
+      br
+  .row
+    .col-12
+      .actions.row
+        .col-sm-4
+          = link_to 'Назад', devices_path, class: 'btn btn-secondary btn-block'
+        .col-sm-4
+          - if @device.id
+            = link_to 'Удалить', @device, data: {confirm: 'Вы уверены?'}, method: :delete, class: 'btn btn-danger btn-block'
+        .col-sm-4
+          = f.submit 'Сохранить', class: 'btn btn-success btn-block'
