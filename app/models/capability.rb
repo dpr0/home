@@ -10,5 +10,4 @@ class Capability < ApplicationRecord
     ['devices.capabilities.range',         'Яркость, громкость, температура.'],
     ['devices.capabilities.toggle',        'Вкл/выкл доп. функций.']
   ].freeze
-
 end

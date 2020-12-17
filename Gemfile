@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -13,7 +15,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2' # Use Active Storage variant
 
 gem 'bootsnap', '>= 1.4.4', require: false
-
 
 gem 'pg'
 gem 'slim-rails'

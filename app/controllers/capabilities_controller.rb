@@ -16,5 +16,4 @@ class CapabilitiesController < ApplicationController
   def update; end
 
   def destroy; end
-
 end
